@@ -1,0 +1,15 @@
+cat > /data/local/tmp/screenshot.sh <<EOF
+#!/bin/sh
+echo 'volume key: down'
+sendevent /dev/input/event1 1 114 1
+echo 'power key: down'
+sendevent /dev/input/event1 1 116 1
+sendevent /dev/input/event1 0 0 0
+sleep 1
+echo 'volume key: up'
+sendevent /dev/input/event1 1 114 0
+echo 'power key: up'
+sendevent /dev/input/event1 1 116 0
+sendevent /dev/input/event1 0 0 0
+EOF
+sh /data/local/tmp/screenshot.sh
